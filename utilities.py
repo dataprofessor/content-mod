@@ -98,6 +98,10 @@ def transcribe_yt():
     yt_txt.write(transcript_output_response.json()["text"])
     yt_txt.close()
 
+    # 9. Write JSON to app
+    
+    st.write(transcript_output_response.json())
+    
     # Save as SRT file
     srt_endpoint = endpoint + "/srt"
     srt_response = requests.get(srt_endpoint, headers=headers)

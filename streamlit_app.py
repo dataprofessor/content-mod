@@ -9,7 +9,6 @@ from zipfile import ZipFile
 from utilities import get_yt, transcribe_yt
 
 st.markdown('# 📝 **Transcriber App**')
-bar = st.progress(0)
 
 # The App
 

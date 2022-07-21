@@ -27,5 +27,5 @@ if submit_button:
             mime="application/zip"
         )
 
-with st.expander('Example URL'):
+with st.sidebar.expander('Example URL'):
 	st.code('https://www.youtube.com/watch?v=twG4mr6Jov0')

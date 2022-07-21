@@ -5,6 +5,9 @@ from pytube import YouTube
 
 bar = st.progress(0)
 
+# 1. API
+api_key = st.secrets['api_key']
+
 # 2. Retrieving audio file from YouTube video
 def get_yt(URL):
     video = YouTube(URL)

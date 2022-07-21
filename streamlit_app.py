@@ -12,8 +12,6 @@ st.markdown('# 📝 **Transcriber App**')
 
 # The App
 
-# 1. Read API from text file
-api_key = st.secrets['api_key']
 
 #st.info('1. API is read ...')
 st.warning('Awaiting URL input in the sidebar.')

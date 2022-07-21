@@ -3,6 +3,8 @@ import os
 import requests
 from pytube import YouTube
 
+bar = st.progress(0)
+
 # 2. Retrieving audio file from YouTube video
 def get_yt(URL):
     video = YouTube(URL)

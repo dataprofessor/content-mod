@@ -43,7 +43,8 @@ def transcribe_yt():
     endpoint = "https://api.assemblyai.com/v2/transcript"
 
     json = {
-    "audio_url": audio_url
+        "audio_url": audio_url,
+        "content_safety": True
     }
 
     headers = {

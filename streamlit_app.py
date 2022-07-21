@@ -1,25 +1,14 @@
 import streamlit as st
 from pytube import YouTube
-import os
-import sys
-import time
-import requests
-from zipfile import ZipFile
-
 from utilities import get_yt, transcribe_yt
 
 st.markdown('# 📝 **Transcriber App**')
 
-# The App
-
-
-#st.info('1. API is read ...')
 st.warning('Awaiting URL input in the sidebar.')
 
 
 # Sidebar
 st.sidebar.header('Input parameter')
-
 
 with st.sidebar.form(key='my_form'):
 	URL = st.text_input('Enter URL of YouTube video:')

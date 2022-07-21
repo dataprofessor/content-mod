@@ -26,3 +26,6 @@ if submit_button:
             file_name="transcription.zip",
             mime="application/zip"
         )
+
+with st.expander('Example URL'):
+	st.code('https://www.youtube.com/watch?v=twG4mr6Jov0')

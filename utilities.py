@@ -1,7 +1,9 @@
 import streamlit as st
 import os
+from time import sleep
 import requests
 from pytube import YouTube
+from zipfile import ZipFile
 
 bar = st.progress(0)
 
@@ -77,7 +79,6 @@ def transcribe_yt():
     bar.progress(60)
 
     # Check if transcription is complete
-    from time import sleep
 
     while transcript_output_response.json()['status'] != 'completed':
         sleep(5)

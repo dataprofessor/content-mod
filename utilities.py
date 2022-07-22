@@ -80,8 +80,9 @@ def transcribe_yt():
 
     # Check if transcription is complete
 
+    st.warning('Transcription is processing ...')
     while transcript_output_response.json()['status'] != 'completed':
-        #sleep(5)
+        sleep(1)
         #st.warning('Transcription is processing ...')
         transcript_output_response = requests.get(endpoint, headers=headers)
     

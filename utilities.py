@@ -117,6 +117,9 @@ def transcribe_yt():
     
     # Delete processed files
     for file in os.listdir(current_dir):
-        os.remove(file.endswith(".mp4"))
-        os.remove(file.endswith(".txt"))
-        os.remove(file.endswith(".srt"))
+        if file.endswith(".mp4"):
+            os.remove(file.endswith(".mp4"))
+        if file.endswith(".txt"):
+            os.remove(file.endswith(".txt"))
+        if file.endswith(".srt"):
+            os.remove(file.endswith(".srt"))

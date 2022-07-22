@@ -90,7 +90,7 @@ def transcribe_yt():
     # 7. Print transcribed text
     st.header('Output')
     
-    with st.expander('Show output'):
+    with st.expander('Show Text'):
         st.success(transcript_output_response.json()["text"])
 
     # 8. Save transcribed text to file

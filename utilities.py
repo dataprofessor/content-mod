@@ -16,7 +16,7 @@ def get_yt(inputURL):
     yt = video.streams.get_audio_only()
     yt.download()
 
-    #st.info('2. Audio file has been retrieved from YouTube video')
+    st.info('2. Audio file has been retrieved from YouTube video')
     bar.progress(10)
 
 # 3. Upload YouTube audio file to AssemblyAI
@@ -43,7 +43,7 @@ def transcribe_yt():
                             headers=headers,
                             data=read_file(filename))
     audio_url = response.json()['upload_url']
-    #st.info('3. YouTube audio file has been uploaded to AssemblyAI')
+    st.info('3. YouTube audio file has been uploaded to AssemblyAI')
     bar.progress(30)
 
     # 4. Transcribe uploaded audio file
@@ -61,12 +61,12 @@ def transcribe_yt():
 
     transcript_input_response = requests.post(endpoint, json=json, headers=headers)
 
-    #st.info('4. Transcribing uploaded file')
+    st.info('4. Transcribing uploaded file')
     bar.progress(40)
 
     # 5. Extract transcript ID
     transcript_id = transcript_input_response.json()["id"]
-    #st.info('5. Extract transcript ID')
+    st.info('5. Extract transcript ID')
     bar.progress(50)
 
     # 6. Retrieve transcription results
@@ -75,7 +75,7 @@ def transcribe_yt():
         "authorization": api_key,
     }
     transcript_output_response = requests.get(endpoint, headers=headers)
-    #st.info('6. Retrieve transcription results')
+    st.info('6. Retrieve transcription results')
     bar.progress(60)
 
     # Check if transcription is complete
@@ -83,14 +83,16 @@ def transcribe_yt():
     st.warning('Transcription is processing ...')
     while transcript_output_response.json()['status'] != 'completed':
         sleep(1)
-        #st.warning('Transcription is processing ...')
+        st.warning('Transcription is processing ...')
         transcript_output_response = requests.get(endpoint, headers=headers)
     
     bar.progress(100)
 
     # 7. Print transcribed text
     st.header('Output')
-    st.success(transcript_output_response.json()["text"])
+    
+    with st.expander('Show output'):
+        st.success(transcript_output_response.json()["text"])
 
     # 8. Save transcribed text to file
 
@@ -100,8 +102,8 @@ def transcribe_yt():
     yt_txt.close()
 
     # 9. Write JSON to app
-    
-    st.write(transcript_output_response.json())
+    with st.expander('Show JSON'):
+        st.write(transcript_output_response.json())
     
     # Save as SRT file
     srt_endpoint = endpoint + "/srt"

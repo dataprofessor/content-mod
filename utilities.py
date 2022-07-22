@@ -11,8 +11,8 @@ bar = st.progress(0)
 api_key = st.secrets['api_key']
 
 # 2. Retrieving audio file from YouTube video
-def get_yt(URL):
-    video = YouTube(URL)
+def get_yt(inputURL):
+    video = YouTube(inputURL)
     yt = video.streams.get_audio_only()
     yt.download()
 

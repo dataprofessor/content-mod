@@ -114,3 +114,9 @@ def transcribe_yt():
     zip_file.write('yt.txt')
     zip_file.write('yt.srt')
     zip_file.close()
+    
+    # Delete processed files
+    for file in os.listdir(current_dir):
+        os.remove(file.endswith(".mp4"))
+        os.remove(file.endswith(".txt"))
+        os.remove(file.endswith(".srt"))
